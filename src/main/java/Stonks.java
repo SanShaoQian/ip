@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Stonks {
@@ -9,14 +11,24 @@ public class Stonks {
         System.out.println(separator + greeting + separator);
 
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        while (!input.equals("bye")) {
-            System.out.println(separator + "     " + input + "\n" + separator);
+        String input;
+        List<String> list = new ArrayList<>();
+        while (true) {
             input = scanner.nextLine();
+            if (input.equals("bye")) break;
+            if (input.equals("list")) {
+                System.out.print(separator);
+                for (int i = 0; i < list.size(); i++) {
+                    System.out.println(String.format("     %d. %s", i + 1, list.get(i)));
+                }
+                System.out.print(separator);
+            }
+            else {
+                list.add(input);
+                System.out.print(String.format("%s     added: %s\n%s", separator, input, separator));
+            }
         }
-
         System.out.println(separator + exit + separator);
         scanner.close();
-
     }
 }
