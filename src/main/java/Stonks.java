@@ -46,29 +46,49 @@ public class Stonks {
             }
             else if (inputs[0].equals("todo") || inputs[0].equals("deadline") || inputs[0].equals("event")) {
                 System.out.print(separator);
-                System.out.println("     Got it. I've added this task:");
                 Task task = new Task("");
                 if (inputs[0].equals("todo")) {
                     String regex = "^\\s*(\\w+)\\s+(.*?)\\s*$";
                     Pattern pattern = Pattern.compile(regex);
                     Matcher matcher = pattern.matcher(input);
                     if (matcher.matches()) task = new Todo(matcher.group(2));
+                    else {
+                        System.out.println("     OHNOOOO, a todo should have a description");
+                        System.out.println(separator);
+                        continue;
+                    }
                 }
                 else if (inputs[0].equals("deadline")) {
                     String regex = "^\\s*(\\w+)\\s+(.*?)\\s+/by\\s+(.+)\\s*$";
                     Pattern pattern = Pattern.compile(regex);
                     Matcher matcher = pattern.matcher(input);
                     if (matcher.matches()) task = new Deadline(matcher.group(2), matcher.group(3));
+                    else {
+                        System.out.println("     OHNOOOO, a deadline should have a description and deadline");
+                        System.out.println(separator);
+                        continue;
+                    }
                 }
                 else if (inputs[0].equals("event")) {
                     String regex = "^\\s*(\\w+)\\s+(.*?)\\s+/from\\s+(.+?)\\s+/to\\s+(.+)\\s*$";
                     Pattern pattern = Pattern.compile(regex);
                     Matcher matcher = pattern.matcher(input);
                     if (matcher.matches()) task = new Event(matcher.group(2), matcher.group(3), matcher.group(4));
+                    else {
+                        System.out.println("     OHNOOOO, an event should have a description, start and end");
+                        System.out.println(separator);
+                        continue;
+                    }
                 }
                 list.add(task);
+                System.out.println("     Got it. I've added this task:");
                 System.out.println("       " + task);
                 System.out.println(String.format("     Now you have %d tasks in the list.", list.size()));
+                System.out.print(separator);
+            }
+            else {
+                System.out.print(separator);
+                System.out.println("     Sorry, I don't know what that means.");
                 System.out.print(separator);
             }
         }
