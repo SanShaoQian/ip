@@ -9,7 +9,6 @@ public class Stonks {
         String greeting = "     Hello! I'm Stonks\n" +
                 "     What can I do for you?\n" ;
         String separator = "    ____________________________________________________________\n";
-        String exit = "     Bye. Hope to see you again soon!\n" ;
         System.out.print(separator + greeting + separator);
 
         Scanner scanner = new Scanner(System.in);
@@ -21,7 +20,7 @@ public class Stonks {
             inputs = input.split(" ");
             System.out.print(separator);
             if (inputs[0].equals("bye")) {
-                System.out.println(exit);
+                System.out.println("     Bye. Hope to see you again soon!");
                 System.out.print(separator);
                 break;
             }
@@ -30,21 +29,18 @@ public class Stonks {
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println(String.format("     %d. %s", i + 1, list.get(i).toString()));
                 }
-                System.out.print(separator);
             }
             else if (inputs[0].equals("mark")) {
                 int index = Integer.parseInt(inputs[1]) - 1;
                 System.out.println("     Nice! I've marked this task as done:");
                 list.get(index).markDone();
                 System.out.println("       " + list.get(index).toString());
-                System.out.print(separator);
             }
             else if (inputs[0].equals("unmark")) {
                 int index = Integer.parseInt(inputs[1]) - 1;
                 System.out.println("     OK, I've marked this task as not done yet:");
                 list.get(index).markNotDone();
                 System.out.println("       " + list.get(index).toString());
-                System.out.print(separator);
             }
             else if (inputs[0].equals("todo") || inputs[0].equals("deadline") || inputs[0].equals("event")) {
                 Task task = new Task("");
