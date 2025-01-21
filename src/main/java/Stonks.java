@@ -19,9 +19,13 @@ public class Stonks {
         while (true) {
             input = scanner.nextLine();
             inputs = input.split(" ");
-            if (inputs[0].equals("bye")) break;
-            else if (inputs[0].equals("list")) {
+            System.out.print(separator);
+            if (inputs[0].equals("bye")) {
+                System.out.println(exit);
                 System.out.print(separator);
+                break;
+            }
+            else if (inputs[0].equals("list")) {
                 System.out.println("     Here are the tasks in your list:");
                 for (int i = 0; i < list.size(); i++) {
                     System.out.println(String.format("     %d. %s", i + 1, list.get(i).toString()));
@@ -30,7 +34,6 @@ public class Stonks {
             }
             else if (inputs[0].equals("mark")) {
                 int index = Integer.parseInt(inputs[1]) - 1;
-                System.out.print(separator);
                 System.out.println("     Nice! I've marked this task as done:");
                 list.get(index).markDone();
                 System.out.println("       " + list.get(index).toString());
@@ -38,14 +41,12 @@ public class Stonks {
             }
             else if (inputs[0].equals("unmark")) {
                 int index = Integer.parseInt(inputs[1]) - 1;
-                System.out.print(separator);
                 System.out.println("     OK, I've marked this task as not done yet:");
                 list.get(index).markNotDone();
                 System.out.println("       " + list.get(index).toString());
                 System.out.print(separator);
             }
             else if (inputs[0].equals("todo") || inputs[0].equals("deadline") || inputs[0].equals("event")) {
-                System.out.print(separator);
                 Task task = new Task("");
                 if (inputs[0].equals("todo")) {
                     String regex = "^\\s*(\\w+)\\s+(.*?)\\s*$";
@@ -84,15 +85,20 @@ public class Stonks {
                 System.out.println("     Got it. I've added this task:");
                 System.out.println("       " + task);
                 System.out.println(String.format("     Now you have %d tasks in the list.", list.size()));
-                System.out.print(separator);
+            }
+            else if (inputs[0].equals("delete")) {
+                int index = Integer.parseInt(inputs[1]) - 1;
+                Task task = list.get(index);
+                list.remove(index);
+                System.out.println("     Noted. I've removed this task:");
+                System.out.println("       " + task);
+                System.out.println(String.format("     Now you have %d tasks in the list.", list.size()));
             }
             else {
-                System.out.print(separator);
                 System.out.println("     Sorry, I don't know what that means.");
-                System.out.print(separator);
             }
+            System.out.print(separator);
         }
-        System.out.print(separator + exit + separator);
         scanner.close();
     }
 }
