@@ -10,7 +10,7 @@ public class Stonks {
                 "     What can I do for you?\n" ;
         String separator = "    ____________________________________________________________\n";
         String exit = "     Bye. Hope to see you again soon!\n" ;
-        System.out.println(separator + greeting + separator);
+        System.out.print(separator + greeting + separator);
 
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -72,7 +72,7 @@ public class Stonks {
                 System.out.print(separator);
             }
         }
-        System.out.println(separator + exit + separator);
+        System.out.print(separator + exit + separator);
         scanner.close();
     }
 }
