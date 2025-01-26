@@ -1,3 +1,8 @@
+package stonks.parser;
+
+import stonks.command.*;
+import stonks.task.*;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

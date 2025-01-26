@@ -1,3 +1,11 @@
+package stonks;
+
+import stonks.storage.Storage;
+import stonks.task.*;
+import stonks.ui.Ui;
+import stonks.command.*;
+import stonks.parser.Parser;
+
 public class Stonks {
     private Storage storage;
     private TaskManager tm;

@@ -1,4 +1,7 @@
+package stonks.ui;
+
 import java.util.Scanner;
+import stonks.task.TaskManager;
 
 public class Ui {
     private final Scanner scanner;

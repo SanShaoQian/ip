@@ -1,8 +1,6 @@
-import java.io.*;
-import java.nio.file.*;
+package stonks.task;
+
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class TaskManager {
     private ArrayList<Task> tasks;
