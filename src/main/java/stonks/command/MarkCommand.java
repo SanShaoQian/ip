@@ -4,6 +4,9 @@ import stonks.storage.Storage;
 import stonks.task.TaskManager;
 import stonks.ui.Ui;
 
+/**
+ * Mark required task as complete
+ */
 public class MarkCommand extends Command {
     private final int index;
 

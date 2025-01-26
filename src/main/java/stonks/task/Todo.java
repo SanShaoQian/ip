@@ -1,5 +1,9 @@
 package stonks.task;
 
+/**
+ * A type of task
+ * Contains a description only
+ */
 public class Todo extends Task {
     public Todo(String description) {
         super(description);

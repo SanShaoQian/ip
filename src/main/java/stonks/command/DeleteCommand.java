@@ -4,6 +4,9 @@ import stonks.storage.Storage;
 import stonks.task.TaskManager;
 import stonks.ui.Ui;
 
+/**
+ * Deletes a certain task from the list of tasks
+ */
 public class DeleteCommand extends Command {
     private final int index;
 

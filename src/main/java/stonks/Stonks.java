@@ -6,6 +6,9 @@ import stonks.ui.Ui;
 import stonks.command.*;
 import stonks.parser.Parser;
 
+/**
+ * Chatbot named Stonks to store a todo-list
+ */
 public class Stonks {
     private Storage storage;
     private TaskManager tm;
@@ -17,6 +20,9 @@ public class Stonks {
         tm = new TaskManager(storage.load());
     }
 
+    /**
+     * Processes user input and alters a todo-list accordingly
+     */
     public void run() {
         ui.showGreeting();
         boolean done = false;
@@ -28,6 +34,9 @@ public class Stonks {
         }
     }
 
+    /**
+     * Processes user input and alters a todo-list accordingly
+     */
     public static void main(String[] args) {
         new Stonks("./data/stonks.txt").run();
     }

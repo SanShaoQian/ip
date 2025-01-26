@@ -2,6 +2,10 @@ package stonks.task;
 
 import java.util.ArrayList;
 
+/**
+ * Stores and manages all the tasks
+ * Handles the addition and deletion of tasks
+ */
 public class TaskManager {
     private ArrayList<Task> tasks;
 
@@ -9,10 +13,18 @@ public class TaskManager {
         this.tasks = tasks;
     }
 
+    /**
+     * Returns current tasks
+     * @return ArrayList of all current tasks
+     */
     public ArrayList<Task> getTasks() {
         return tasks;
     }
 
+    /**
+     * Add a new task into the list
+     * @param task task to be added
+     */
     public void addTask(Task task) {
         tasks.add(task);
     }
@@ -30,20 +42,39 @@ public class TaskManager {
         return output.toString();
     }
 
+    /**
+     * Mark a task as completed
+     * @param index index of task
+     * @return task marked completed
+     */
     public Task mark(int index) {
         this.tasks.get(index).markDone();;
         return this.tasks.get(index);
     }
 
+    /**
+     * Mark a task as uncompleted
+     * @param index index of task
+     * @return task marked uncompleted
+     */
     public Task unmark(int index) {
         this.tasks.get(index).markNotDone();
         return this.tasks.get(index);
     }
 
+    /**
+     * Returns total number of tasks
+     * @return size of list of tasks
+     */
     public int size() {
         return this.tasks.size();
     }
 
+    /**
+     * Delete a task at the given index from the list
+     * @param index index of task to be deleted
+     * @return task that is deleted
+     */
     public Task deleteTask(int index) {
         Task task = this.tasks.get(index);
         this.tasks.remove(index);

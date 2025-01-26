@@ -4,6 +4,9 @@ import stonks.storage.Storage;
 import stonks.task.TaskManager;
 import stonks.ui.Ui;
 
+/**
+ * Displays an error message
+ */
 public class ErrorCommand extends Command {
     private final String message;
 

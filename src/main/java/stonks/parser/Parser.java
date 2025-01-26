@@ -6,7 +6,15 @@ import stonks.task.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Makes sense of the user command
+ */
 public class Parser {
+    /**
+     * parses user input into an actionable command
+     * @param input user input
+     * @return command based on input
+     */
     public static Command parse(String input) {
         String[] parts = input.split(" ", 2);
         String commandWord = parts[0];

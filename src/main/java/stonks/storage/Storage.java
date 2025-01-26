@@ -7,6 +7,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import stonks.task.*;
 
+/**
+ * Deals with loading tasks from the file and saving tasks in the file
+ */
 public class Storage {
     String filepath;
 
@@ -14,6 +17,10 @@ public class Storage {
         this.filepath = filepath;
     }
 
+    /**
+     * Load the data from the hard disk when the chatbot starts up.
+     * @return list of tasks loaded
+     */
     public ArrayList<Task> load() {
         Path path = Paths.get(this.filepath);
         if (!Files.exists(path)) {
@@ -53,6 +60,10 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Save the tasks in the hard disk
+     * @param tasks list of tasks to save
+     */
     public void save(ArrayList<Task> tasks) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filepath))) {
             for (Task task : tasks) {
@@ -64,6 +75,9 @@ public class Storage {
         }
     }
 
+    /**
+     * clear the data in the file
+     */
     public void clearDataFile() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filepath))) {
             writer.write("");

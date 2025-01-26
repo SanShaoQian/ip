@@ -3,6 +3,10 @@ package stonks.task;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Type of task
+ * Has a description, completion status, start time and end time
+ */
 public class Event extends Task {
     private LocalDate start;
     private LocalDate end;

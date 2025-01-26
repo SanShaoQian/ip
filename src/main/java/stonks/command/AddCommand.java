@@ -5,6 +5,9 @@ import stonks.task.Task;
 import stonks.task.TaskManager;
 import stonks.ui.Ui;
 
+/**
+ * Command which adds a task into the taskManager
+ */
 public class AddCommand extends Command {
     private final Task task;
 
