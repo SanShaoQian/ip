@@ -10,7 +10,6 @@ public class Stonks {
         Scanner scanner = new Scanner(System.in);
         String input;
         TaskManager tm = new TaskManager("./data/stonks.txt");
-        //List<Task> list = new ArrayList<>();
         while (true) {
             input = scanner.nextLine();
             System.out.print(separator);

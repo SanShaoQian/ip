@@ -11,6 +11,45 @@ public class TaskManager {
     public TaskManager(String filepath) {
         this.filepath = filepath;
         this.tasks = new ArrayList<>();
+        loadTasksFromFile();
+    }
+
+    private void loadTasksFromFile() {
+        Path path = Paths.get(this.filepath);
+        if (!Files.exists(path)) {
+            try {
+                Files.createDirectories(path.getParent());
+                Files.createFile(path);
+            } catch (IOException e) {
+                System.out.println("Error initializing data file: " + e.getMessage());
+                return;
+            }
+        }
+        try (BufferedReader reader = new BufferedReader(new FileReader(this.filepath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(" \\| ");
+                if (parts.length < 3) continue;
+
+                String type = parts[0];
+                boolean isDone = parts[1].equals("1");
+                String description = parts[2];
+                Task task = switch (type) {
+                    case "T" -> new Todo(description);
+                    case "D" -> new Deadline(description, parts.length > 3 ? parts[3] : null);
+                    case "E" -> new Event(description, parts.length > 3 ? parts[3] : null, parts.length > 4 ? parts[4] : null);
+                    default -> null;
+                };
+                if (task != null) {
+                    if (isDone) {
+                        task.markDone();
+                    }
+                    tasks.add(task);
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading data file: " + e.getMessage());
+        }
     }
 
     private Task stringToTask(String input) {
@@ -53,15 +92,6 @@ public class TaskManager {
     }
 
     private void saveTasksToFile() {
-        Path path = Paths.get(this.filepath);
-        if (!Files.exists(path)) {
-            try {
-                Files.createDirectories(path.getParent());
-                Files.createFile(path);
-            } catch (IOException e) {
-                System.out.println("Error initializing data file: " + e.getMessage());
-            }
-        }
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filepath))) {
             for (Task task : tasks) {
                 writer.write(task.toFileFormat());
@@ -102,5 +132,13 @@ public class TaskManager {
         this.tasks.remove(index);
         this.saveTasksToFile();
         return task;
+    }
+
+    public void clearDataFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filepath))) {
+            writer.write("");
+        } catch (IOException e) {
+            System.out.println("Error clearing data file: " + e.getMessage());
+        }
     }
 }
