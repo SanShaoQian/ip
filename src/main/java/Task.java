@@ -18,4 +18,8 @@ public class Task {
     public void markNotDone() {
         isDone = false;
     }
+
+    public String toFileFormat() {
+        return this.toString();
+    }
 }
