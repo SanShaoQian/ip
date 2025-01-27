@@ -13,9 +13,9 @@ public class DeleteCommand extends Command {
 
     @Override
     public void execute(TaskManager tm, Ui ui, Storage storage) {
-        ui.showMessage("     Noted. I've removed this task:\n" + "       " +
-                tm.deleteTask(index) +
-                String.format("\n     Now you have %d tasks in the list.", tm.size())
+        ui.showMessage("     Noted. I've removed this task:\n"
+                + "       " + tm.deleteTask(index)
+                + String.format("\n     Now you have %d tasks in the list.", tm.size())
         );
         storage.save(tm.getTasks());
     }
