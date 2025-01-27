@@ -47,6 +47,14 @@ public class Ui {
     }
 
     /**
+     * Display all tasks with description containing string provided
+     * @param taskManager contains all matching tasks
+     */
+    public void showMatchingList(TaskManager taskManager) {
+        showMessage("     Here are the matching tasks in your list:\n" + taskManager);
+    }
+
+    /**
      * takes in user input
      * @return string provided by user
      */

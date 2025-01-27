@@ -1,1 +1,4 @@
 T | 0 | buy a fish
+D | 0 | buy jacket | 2025-01-30
+T | 0 | read book
+T | 0 | buy a book

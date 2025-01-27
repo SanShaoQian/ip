@@ -38,4 +38,8 @@ public class Task {
     public String toFileFormat() {
         return this.toString();
     }
+
+    public boolean contains(String searchString) {
+        return this.description.toLowerCase().contains(searchString.toLowerCase());
+    }
 }
