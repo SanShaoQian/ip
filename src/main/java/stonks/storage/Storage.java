@@ -1,11 +1,20 @@
 package stonks.storage;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import java.util.ArrayList;
-import stonks.task.*;
+
+import stonks.task.Task;
+import stonks.task.Todo;
+import stonks.task.Event;
+import stonks.task.Deadline;
 
 /**
  * Deals with loading tasks from the file and saving tasks in the file

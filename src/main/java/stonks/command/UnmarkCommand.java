@@ -16,7 +16,8 @@ public class UnmarkCommand extends Command {
 
     @Override
     public void execute(TaskManager tm, Ui ui, Storage storage) {
-        ui.showMessage("     OK, I've marked this task as not done yet:\n" + "       " + tm.unmark(index));
+        ui.showMessage("     OK, I've marked this task as not done yet:\n"
+                + "       " + tm.unmark(index));
         storage.save(tm.getTasks());
     }
 }

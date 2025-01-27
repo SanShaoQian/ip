@@ -1,9 +1,10 @@
 package stonks;
 
 import stonks.storage.Storage;
-import stonks.task.*;
 import stonks.ui.Ui;
-import stonks.command.*;
+import stonks.command.ByeCommand;
+import stonks.command.Command;
+import stonks.task.TaskManager;
 import stonks.parser.Parser;
 
 /**

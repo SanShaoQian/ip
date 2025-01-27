@@ -8,7 +8,6 @@ import stonks.task.TaskManager;
  */
 public class Ui {
     private final Scanner scanner;
-    String separator = "    ____________________________________________________________\n";
 
     public Ui() {
         this.scanner = new Scanner(System.in);
@@ -19,7 +18,8 @@ public class Ui {
      * @param message text to be displayed
      */
     public void showMessage(String message) {
-        System.out.print(separator + message + "\n" + separator);
+        String SEPARATOR = "    ____________________________________________________________\n";
+        System.out.print(SEPARATOR + message + "\n" + SEPARATOR);
     }
 
     /**
@@ -28,14 +28,14 @@ public class Ui {
     public void showGreeting() {
         String greeting = "     Hello! I'm Stonks\n" +
                 "     What can I do for you?" ;
-        this.showMessage(greeting);
+        showMessage(greeting);
     }
 
     /**
      * says goodbye to user when chatbot is closed
      */
     public void showGoodbye() {
-        this.showMessage("     Bye. Hope to see you again soon!");
+        showMessage("     Bye. Hope to see you again soon!");
     }
 
     /**
