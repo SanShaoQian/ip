@@ -29,6 +29,10 @@ public class Ui {
         showMessage("     Here are the tasks in your list:\n" + taskManager);
     }
 
+    public void showMatchingList(TaskManager taskManager) {
+        showMessage("     Here are the matching tasks in your list:\n" + taskManager);
+    }
+
     public String readCommand() {
         return scanner.nextLine().trim();
     }

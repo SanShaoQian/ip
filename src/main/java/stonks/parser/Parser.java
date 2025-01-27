@@ -44,6 +44,8 @@ public class Parser {
                 else return new ErrorCommand("     OHNOOOO, an event should have a description, start and end");
             case "delete":
                 return new DeleteCommand(Integer.parseInt(parts[1]) - 1);
+            case "find":
+                return new FindCommand(parts[1]);
             default:
                 return new ErrorCommand("     Sorry, I don't know what that means.");
         }
