@@ -4,7 +4,7 @@ import java.util.Scanner;
 import stonks.task.TaskManager;
 
 /**
- * deals with interactions with the user
+ * Deals with interactions with the user
  */
 public class Ui {
     private final Scanner scanner;
@@ -14,7 +14,7 @@ public class Ui {
     }
 
     /**
-     * prints message given with separating lines
+     * Prints message given with separating lines
      * @param message text to be displayed
      */
     public void showMessage(String message) {
@@ -23,7 +23,7 @@ public class Ui {
     }
 
     /**
-     * greets user when chatbot is opened
+     * Greets user when chatbot is opened
      */
     public void showGreeting() {
         String greeting = "     Hello! I'm Stonks\n" +
@@ -32,14 +32,14 @@ public class Ui {
     }
 
     /**
-     * says goodbye to user when chatbot is closed
+     * Says goodbye to user when chatbot is closed
      */
     public void showGoodbye() {
         showMessage("     Bye. Hope to see you again soon!");
     }
 
     /**
-     * shows list of all current tasks
+     * Shows list of all current tasks
      * @param taskManager collation of tasks
      */
     public void showList(TaskManager taskManager) {
@@ -55,7 +55,7 @@ public class Ui {
     }
 
     /**
-     * takes in user input
+     * Takes in user input
      * @return string provided by user
      */
     public String readCommand() {

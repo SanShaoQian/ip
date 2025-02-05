@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  */
 public class Parser {
     /**
-     * parses user input into an actionable command
+     * Parses user input into an actionable command
      * @param input user input
      * @return command based on input
      */

@@ -53,7 +53,7 @@ public class TaskManager {
     }
 
     /**
-     * Mark a task as uncompleted
+     * Mark a task as incomplete
      * @param index index of task
      * @return task marked uncompleted
      */

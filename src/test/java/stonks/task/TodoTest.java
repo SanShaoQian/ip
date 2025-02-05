@@ -2,7 +2,7 @@ package stonks.task;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoTest {
     @Test
@@ -15,10 +15,10 @@ public class TodoTest {
     public void markTest() {
         Todo todo = new Todo("test");
         todo.markDone();
-        assertEquals(todo.isDone, true);
+        assertTrue(todo.isDone);
         assertEquals(todo.toString(), "[T][X] test");
         todo.markNotDone();
-        assertEquals(todo.isDone, false);
+        assertFalse(todo.isDone);
         assertEquals(todo.toString(), "[T][ ] test" );
     }
 }

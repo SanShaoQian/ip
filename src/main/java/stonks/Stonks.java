@@ -21,6 +21,12 @@ public class Stonks {
         tm = new TaskManager(storage.load());
     }
 
+    public Stonks() {
+        ui = new Ui();
+        storage = new Storage("./data/stonks.txt");
+        tm = new TaskManager(storage.load());
+    }
+
     /**
      * Processes user input and alters a todo-list accordingly
      */
@@ -33,6 +39,13 @@ public class Stonks {
             command.execute(tm, ui, storage);
             done = command instanceof ByeCommand;
         }
+    }
+
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        return "Duke heard: " + input;
     }
 
     /**
