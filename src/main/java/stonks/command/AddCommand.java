@@ -3,7 +3,6 @@ package stonks.command;
 import stonks.storage.Storage;
 import stonks.task.Task;
 import stonks.task.TaskManager;
-import stonks.ui.Ui;
 
 /**
  * Command which adds a task into the taskManager
@@ -16,12 +15,11 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public void execute(TaskManager tm, Ui ui, Storage storage) {
+    public String execute(TaskManager tm, Storage storage) {
         tm.addTask(task);
-        ui.showMessage("     Got it. I've added this task:\n"
-                + "       " + task
-                + String.format("\n     Now you have %d tasks in the list.", tm.size())
-        );
         storage.save(tm.getTasks());
+        return "     Got it. I've added this task:\n"
+                + "       " + task
+                + String.format("\n     Now you have %d tasks in the list.", tm.size());
     }
 }

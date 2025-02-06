@@ -13,45 +13,40 @@ import stonks.parser.Parser;
 public class Stonks {
     private Storage storage;
     private TaskManager tm;
-    private Ui ui;
 
     public Stonks(String filePath) {
-        ui = new Ui();
         storage = new Storage(filePath);
         tm = new TaskManager(storage.load());
     }
 
     public Stonks() {
-        ui = new Ui();
         storage = new Storage("./data/stonks.txt");
         tm = new TaskManager(storage.load());
     }
 
-    /**
-     * Processes user input and alters a todo-list accordingly
-     */
-    public void run() {
-        ui.showGreeting();
-        boolean done = false;
-        while (!done) {
-            String input = ui.readCommand();
-            Command command = Parser.parse(input);
-            command.execute(tm, ui, storage);
-            done = command instanceof ByeCommand;
-        }
-    }
-
-    /**
-     * Generates a response for the user's chat message.
-     */
     public String getResponse(String input) {
-        return "Duke heard: " + input;
+        Command command = Parser.parse(input);
+        return command.execute(tm, storage);
     }
 
-    /**
-     * Processes user input and alters a todo-list accordingly
-     */
-    public static void main(String[] args) {
-        new Stonks("./data/stonks.txt").run();
-    }
+//    /**
+//     * Processes user input and alters a todo-list accordingly
+//     */
+//    public void run() {
+//        ui.showGreeting();
+//        boolean done = false;
+//        while (!done) {
+//            String input = ui.readCommand();
+//            Command command = Parser.parse(input);
+//            command.execute(tm, ui, storage);
+//            done = command instanceof ByeCommand;
+//        }
+//    }
+//
+//    /**
+//     * Processes user input and alters a todo-list accordingly
+//     */
+//    public static void main(String[] args) {
+//        new Stonks("./data/stonks.txt").run();
+//    }
 }

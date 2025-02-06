@@ -15,7 +15,7 @@ public class ErrorCommand extends Command {
     }
 
     @Override
-    public void execute(TaskManager tm, Ui ui, Storage storage) {
-        ui.showMessage(message);
+    public String execute(TaskManager tm, Storage storage) {
+        return (message);
     }
 }

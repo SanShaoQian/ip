@@ -9,7 +9,7 @@ import stonks.ui.Ui;
  */
 public class ByeCommand extends Command {
     @Override
-    public void execute(TaskManager tm, Ui ui, Storage storage) {
-        ui.showGoodbye();
+    public String execute(TaskManager tm, Storage storage) {
+        return "bye bye";
     }
 }

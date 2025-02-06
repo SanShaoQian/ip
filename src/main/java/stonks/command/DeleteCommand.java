@@ -1,6 +1,7 @@
 package stonks.command;
 
 import stonks.storage.Storage;
+import stonks.task.Task;
 import stonks.task.TaskManager;
 import stonks.ui.Ui;
 
@@ -15,11 +16,11 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(TaskManager tm, Ui ui, Storage storage) {
-        ui.showMessage("     Noted. I've removed this task:\n"
-                + "       " + tm.deleteTask(index)
-                + String.format("\n     Now you have %d tasks in the list.", tm.size())
-        );
+    public String execute(TaskManager tm, Storage storage) {
+        Task t = tm.deleteTask(index);
         storage.save(tm.getTasks());
+        return "     Noted. I've removed this task:\n"
+                + "       " + t
+                + String.format("\n     Now you have %d tasks in the list.", tm.size());
     }
 }

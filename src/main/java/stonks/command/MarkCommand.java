@@ -15,9 +15,10 @@ public class MarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskManager tm, Ui ui, Storage storage) {
-        ui.showMessage("     Nice! I've marked this task as done:\n"
-                + "       " + tm.mark(index));
+    public String execute(TaskManager tm, Storage storage) {
+        tm.mark(index);
         storage.save(tm.getTasks());
+        return ("     Nice! I've marked this task as done:\n"
+                + "       " + tm.mark(index));
     }
 }

@@ -15,13 +15,13 @@ public class FindCommand extends Command {
     }
 
     @Override
-    public void execute(TaskManager tm, Ui ui, Storage storage) {
+    public String execute(TaskManager tm, Storage storage) {
         ArrayList<Task> tasks = new ArrayList<>();
         for (Task i: tm.getTasks()) {
             if (i.contains(searchString)) {
                 tasks.add(i);
             }
         }
-        ui.showMatchingList(new TaskManager(tasks));
+        return "     Here are the matching tasks in your list:\n" + new TaskManager(tasks);
     }
 }

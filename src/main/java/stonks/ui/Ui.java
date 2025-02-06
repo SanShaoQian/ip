@@ -7,12 +7,6 @@ import stonks.task.TaskManager;
  * Deals with interactions with the user
  */
 public class Ui {
-    private final Scanner scanner;
-
-    public Ui() {
-        this.scanner = new Scanner(System.in);
-    }
-
     /**
      * Prints message given with separating lines
      * @param message text to be displayed
@@ -54,11 +48,11 @@ public class Ui {
         showMessage("     Here are the matching tasks in your list:\n" + taskManager);
     }
 
-    /**
-     * Takes in user input
-     * @return string provided by user
-     */
-    public String readCommand() {
-        return scanner.nextLine().trim();
-    }
+//    /**
+//     * Takes in user input
+//     * @return string provided by user
+//     */
+//    public String readCommand() {
+//        return scanner.nextLine().trim();
+//    }
 }
