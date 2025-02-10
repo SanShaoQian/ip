@@ -1,13 +1,6 @@
 package stonks.parser;
 
-import stonks.command.AddCommand;
-import stonks.command.ByeCommand;
-import stonks.command.Command;
-import stonks.command.DeleteCommand;
-import stonks.command.ErrorCommand;
-import stonks.command.ListCommand;
-import stonks.command.MarkCommand;
-import stonks.command.UnmarkCommand;
+import stonks.command.*;
 import stonks.task.Deadline;
 import stonks.task.Event;
 import stonks.task.Todo;
@@ -68,6 +61,8 @@ public class Parser {
             }
         case "delete":
             return new DeleteCommand(Integer.parseInt(parts[1]) - 1);
+        case "find":
+            return new FindCommand(parts[1]);
         default:
             return new ErrorCommand("     Sorry, I don't know what that means.");
         }
