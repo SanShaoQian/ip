@@ -3,7 +3,6 @@ package stonks.command;
 import stonks.storage.Storage;
 import stonks.task.Task;
 import stonks.task.TaskManager;
-import stonks.ui.Ui;
 
 import java.util.ArrayList;
 
@@ -11,6 +10,8 @@ public class FindCommand extends Command {
     private final String searchString;
 
     public FindCommand(String searchString) {
+        assert searchString != null;
+        assert !searchString.isEmpty();
         this.searchString = searchString;
     }
 

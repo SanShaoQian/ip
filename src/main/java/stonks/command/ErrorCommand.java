@@ -2,7 +2,6 @@ package stonks.command;
 
 import stonks.storage.Storage;
 import stonks.task.TaskManager;
-import stonks.ui.Ui;
 
 /**
  * Displays an error message

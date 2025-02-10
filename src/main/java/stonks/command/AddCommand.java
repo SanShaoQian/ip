@@ -17,6 +17,7 @@ public class AddCommand extends Command {
     @Override
     public String execute(TaskManager tm, Storage storage) {
         tm.addTask(task);
+        assert tm.size() > 0 : "TaskManager should have at least 1 task";
         storage.save(tm.getTasks());
         return "     Got it. I've added this task:\n"
                 + "       " + task
