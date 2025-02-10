@@ -9,6 +9,7 @@ import stonks.task.TaskManager;
  */
 public class DeleteCommand extends Command {
     private final int index;
+    private static final String MESSAGE = "     Noted. I've removed this task:\n       \n     Now you have %d tasks in the list.";
 
     public DeleteCommand(int index) {
         assert index >= 0 : "Index should be non-negative";
@@ -20,8 +21,6 @@ public class DeleteCommand extends Command {
         assert index < tm.size() : "Index should be within the range of the task list";
         Task t = tm.deleteTask(index);
         storage.save(tm.getTasks());
-        return "     Noted. I've removed this task:\n"
-                + "       " + t
-                + String.format("\n     Now you have %d tasks in the list.", tm.size());
+        return String.format(MESSAGE, tm.size());
     }
 }

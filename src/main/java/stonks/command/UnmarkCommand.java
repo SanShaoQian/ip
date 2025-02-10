@@ -9,6 +9,7 @@ import stonks.ui.Ui;
  */
 public class UnmarkCommand extends Command {
     private final int index;
+    private static final String MESSAGE = "     OK, I've marked this task as not done yet:\n       ";
 
     public UnmarkCommand(int index) {
         assert index >= 0 : "Task index cannot be negative";
@@ -20,7 +21,6 @@ public class UnmarkCommand extends Command {
         assert tm.getTasks().size() > index : "Task index out of bounds";
         tm.unmark(index);
         storage.save(tm.getTasks());
-        return ("     OK, I've marked this task as not done yet:\n"
-                + "       " + tm.unmark(index));
+        return (MESSAGE + tm.unmark(index));
     }
 }

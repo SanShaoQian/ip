@@ -7,12 +7,12 @@ import stonks.task.TaskManager;
  * Deals with interactions with the user
  */
 public class Ui {
+    private static final String SEPARATOR = "    ____________________________________________________________\n";
     /**
      * Prints message given with separating lines
      * @param message text to be displayed
      */
     public void showMessage(String message) {
-        String SEPARATOR = "    ____________________________________________________________\n";
         System.out.print(SEPARATOR + message + "\n" + SEPARATOR);
     }
 
