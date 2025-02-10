@@ -7,8 +7,9 @@ import stonks.task.TaskManager;
  * Displays list of tasks stored
  */
 public class ListCommand extends Command {
+    private static final String MESSAGE = "     Here are the tasks in your list:\n";
     @Override
     public String execute(TaskManager tm, Storage storage) {
-        return "     Here are the tasks in your list:\n" + tm;
+        return MESSAGE + tm;
     }
 }

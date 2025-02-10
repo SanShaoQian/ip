@@ -9,6 +9,9 @@ import stonks.task.TaskManager;
  */
 public class AddCommand extends Command {
     private final Task task;
+    private final static String MESSAGE = "     Got it. I've added this task:\n"
+            + "       %s\n"
+            + "     Now you have %d tasks in the list.";
 
     public AddCommand(Task task) {
         this.task = task;
@@ -18,8 +21,6 @@ public class AddCommand extends Command {
     public String execute(TaskManager tm, Storage storage) {
         tm.addTask(task);
         storage.save(tm.getTasks());
-        return "     Got it. I've added this task:\n"
-                + "       " + task
-                + String.format("\n     Now you have %d tasks in the list.", tm.size());
+        return String.format(MESSAGE, task.toString(), tm.size());
     }
 }

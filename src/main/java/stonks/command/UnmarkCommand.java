@@ -9,6 +9,7 @@ import stonks.ui.Ui;
  */
 public class UnmarkCommand extends Command {
     private final int index;
+    private static final String MESSAGE = "     OK, I've marked this task as not done yet:\n       ";
 
     public UnmarkCommand(int index) {
         this.index = index;
@@ -18,7 +19,6 @@ public class UnmarkCommand extends Command {
     public String execute(TaskManager tm, Storage storage) {
         tm.unmark(index);
         storage.save(tm.getTasks());
-        return ("     OK, I've marked this task as not done yet:\n"
-                + "       " + tm.unmark(index));
+        return (MESSAGE + tm.unmark(index));
     }
 }
