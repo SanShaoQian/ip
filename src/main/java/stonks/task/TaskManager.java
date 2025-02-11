@@ -26,6 +26,16 @@ public class TaskManager {
      * @param task task to be added
      */
     public void addTask(Task task) {
+        for (int i = 0; i < tasks.size(); i++) {
+            if (tasks.get(i).isSameTask(task)) {
+                if (tasks.get(i).isDone) {
+                    task.markDone();
+                }
+                tasks.remove(i);
+                tasks.add(i, task);
+                return;
+            }
+        }
         tasks.add(task);
     }
 

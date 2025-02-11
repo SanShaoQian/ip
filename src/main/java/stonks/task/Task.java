@@ -42,4 +42,13 @@ public class Task {
     public boolean contains(String searchString) {
         return this.description.toLowerCase().contains(searchString.toLowerCase());
     }
+
+    /**
+     * Check if two tasks are the same
+     * @param task task to be compared
+     * @return
+     */
+    public boolean isSameTask(Task task) {
+        return this.description.equals(task.description);
+    }
 }
