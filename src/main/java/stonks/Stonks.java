@@ -4,6 +4,7 @@ import stonks.storage.Storage;
 import stonks.command.Command;
 import stonks.task.TaskManager;
 import stonks.parser.Parser;
+import stonks.exceptions.StonksException;
 
 /**
  * Chatbot named Stonks to store a todo-list
@@ -23,7 +24,15 @@ public class Stonks {
     }
 
     public String getResponse(String input) {
-        Command command = Parser.parse(input);
-        return command.execute(tm, storage);
+        try {
+            Command command = Parser.parse(input);
+            return command.execute(tm, storage);
+        } catch (StonksException e) {
+            return e.getMessage();
+        }
+    }
+
+    public String getWelcomeMessage() {
+        return "Hello! I'm Stonks, your personal task manager. How can I help you today?";
     }
 }

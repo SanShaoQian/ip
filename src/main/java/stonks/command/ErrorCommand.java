@@ -1,5 +1,6 @@
 package stonks.command;
 
+import stonks.exceptions.StonksException;
 import stonks.storage.Storage;
 import stonks.task.TaskManager;
 
@@ -9,8 +10,9 @@ import stonks.task.TaskManager;
 public class ErrorCommand extends Command {
     private final String message;
 
-    public ErrorCommand(String message) {
+    public ErrorCommand(String message) throws StonksException {
         this.message = message;
+        throw new StonksException(message);
     }
 
     @Override

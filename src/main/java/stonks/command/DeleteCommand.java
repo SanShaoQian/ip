@@ -19,6 +19,9 @@ public class DeleteCommand extends Command {
     @Override
     public String execute(TaskManager tm, Storage storage) {
         assert index < tm.size() : "Index should be within the range of the task list";
+        if (index >= tm.size()) {
+            return "     The task number you entered is invalid.";
+        }
         Task t = tm.deleteTask(index);
         storage.save(tm.getTasks());
         return String.format(MESSAGE, tm.size());

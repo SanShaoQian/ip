@@ -1,6 +1,7 @@
 package stonks.parser;
 
 import stonks.command.*;
+import stonks.exceptions.StonksException;
 import stonks.task.Deadline;
 import stonks.task.Event;
 import stonks.task.Todo;
@@ -17,7 +18,7 @@ public class Parser {
      * @param input user input
      * @return command based on input
      */
-    public static Command parse(String input) {
+    public static Command parse(String input) throws StonksException {
         String[] parts = input.split(" ", 2);
         String commandWord = parts[0];
 
