@@ -27,7 +27,7 @@ public class Storage {
     }
 
     /**
-     * Load the data from the hard disk when the chatbot starts up.
+     * Loads the data from the hard disk when the chatbot starts up.
      * @return list of tasks loaded
      */
     public ArrayList<Task> load() {
@@ -70,7 +70,7 @@ public class Storage {
     }
 
     /**
-     * Save the tasks in the hard disk
+     * Saves the tasks in the hard disk
      * @param tasks list of tasks to save
      */
     public void save(ArrayList<Task> tasks) {
@@ -81,17 +81,6 @@ public class Storage {
             }
         } catch (IOException e) {
             System.out.println("Error saving tasks to file: " + e.getMessage());
-        }
-    }
-
-    /**
-     * clear the data in the file
-     */
-    public void clearDataFile() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(this.filepath))) {
-            writer.write("");
-        } catch (IOException e) {
-            System.out.println("Error clearing data file: " + e.getMessage());
         }
     }
 }
