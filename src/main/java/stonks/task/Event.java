@@ -11,10 +11,10 @@ public class Event extends Task {
     private LocalDate start;
     private LocalDate end;
 
-    public Event(String description, String start, String end) {
+    public Event(String description, LocalDate start, LocalDate end) {
         super(description);
-        this.start = LocalDate.parse(start);
-        this.end = LocalDate.parse(end);
+        this.start = start;
+        this.end = end;
     }
 
     @Override

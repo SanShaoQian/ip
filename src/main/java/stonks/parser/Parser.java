@@ -6,6 +6,7 @@ import stonks.task.Deadline;
 import stonks.task.Event;
 import stonks.task.Todo;
 
+import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +46,12 @@ public class Parser {
             pattern = Pattern.compile(regex);
             matcher = pattern.matcher(input);
             if (matcher.matches()) {
-                return new AddCommand(new Deadline(matcher.group(2), matcher.group(3)));
+                try {
+                    LocalDate deadline = LocalDate.parse(matcher.group(3));
+                    return new AddCommand(new Deadline(matcher.group(2), deadline));
+                } catch (Exception e) {
+                    return new ErrorCommand("     OHNOOOO, the deadline should be in the format yyyy-mm-dd");
+                }
             } else {
                 return new ErrorCommand(
                         "     OHNOOOO, a deadline should have a description and deadline");
@@ -55,7 +61,13 @@ public class Parser {
             pattern = Pattern.compile(regex);
             matcher = pattern.matcher(input);
             if (matcher.matches()) {
-                return new AddCommand(new Event(matcher.group(2), matcher.group(3), matcher.group(4)));
+                try {
+                    LocalDate start = LocalDate.parse(matcher.group(3));
+                    LocalDate end = LocalDate.parse(matcher.group(4));
+                    return new AddCommand(new Event(matcher.group(2), start, end));
+                } catch (Exception e) {
+                    return new ErrorCommand("     OHNOOOO, the start and end should be in the format yyyy-mm-dd");
+                }
             } else {
                 return new ErrorCommand(
                         "     OHNOOOO, an event should have a description, start and end");

@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import stonks.task.Task;
@@ -52,8 +53,8 @@ public class Storage {
                 String description = parts[2];
                 Task task = switch (type) {
                     case "T" -> new Todo(description);
-                    case "D" -> new Deadline(description, parts.length > 3 ? parts[3] : null);
-                    case "E" -> new Event(description, parts.length > 3 ? parts[3] : null, parts.length > 4 ? parts[4] : null);
+                    case "D" -> new Deadline(description, parts.length > 3 ? LocalDate.parse(parts[3]) : null);
+                    case "E" -> new Event(description, parts.length > 3 ? LocalDate.parse(parts[3]) : null, parts.length > 4 ? LocalDate.parse(parts[4]) : null);
                     default -> null;
                 };
                 if (task != null) {

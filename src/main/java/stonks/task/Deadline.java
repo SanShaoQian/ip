@@ -10,9 +10,9 @@ import java.time.format.DateTimeFormatter;
 public class Deadline extends Task {
     protected LocalDate deadline;
 
-    public Deadline(String description, String deadline) {
+    public Deadline(String description, LocalDate deadline) {
         super(description);
-        this.deadline = LocalDate.parse(deadline);
+        this.deadline = deadline;
     }
 
     @Override
